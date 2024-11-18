@@ -2,6 +2,9 @@
 
 A Cloudflare Worker that provides IP address information, including RDAP data and ISP details.
 
+This documentation assumes you will want to deploy your own to cloud flare,
+but the worker is deployed at [https://myip.badsector.dev](https://myip.badsector.dev) for anyone to use.
+
 ## Features
 
 - Get client IP address in plain text or detailed JSON format
@@ -15,11 +18,14 @@ A Cloudflare Worker that provides IP address information, including RDAP data an
 ### GET /ip
 Returns the client's IP address in plain text.
 
-### GET /isp
-Returns the client's ISP name in plain text.
-
 ```bash
 curl https://your-worker.dev/ip
+```
+
+### GET /isp
+Returns the client's ISP name in plain text.
+```bash
+curl https://your-worker.dev/isp
 ```
 
 ### GET /
