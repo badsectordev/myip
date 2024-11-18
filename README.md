@@ -2,7 +2,7 @@
 
 A Cloudflare Worker that provides IP address information, including RDAP data and ISP details.
 
-This documentation assumes you will want to deploy your own to cloud flare,
+This documentation assumes you will want to deploy your own to Cloudflare account,
 but the worker is deployed at [https://myip.badsector.dev](https://myip.badsector.dev) for anyone to use.
 
 ## Features
