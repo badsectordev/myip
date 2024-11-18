@@ -6,7 +6,8 @@ export default {
 
 async function getRdapData(ip, noCache = false) {
   const cache = caches.default;
-  const cacheKey = `rdap:${ip}`;
+  // Create a proper Request object for the cache key
+  const cacheKey = new Request(`https://rdap-cache/${ip}`);
 
   // Check cache first
   if (!noCache) {
@@ -75,7 +76,7 @@ async function handleRequest(request, env, ctx) {
     try {
       const { ip } = await request.json();
       const cache = caches.default;
-      const cacheKey = `rdap:${ip || clientIP}`;
+      const cacheKey = new Request(`https://rdap-cache/${ip || clientIP}`);
       await cache.delete(cacheKey);
       return new Response(`Cache invalidated for IP: ${ip || clientIP}`, {
         status: 200,
