@@ -15,6 +15,9 @@ A Cloudflare Worker that provides IP address information, including RDAP data an
 ### GET /ip
 Returns the client's IP address in plain text.
 
+### GET /isp
+Returns the client's ISP name in plain text.
+
 ```bash
 curl https://your-worker.dev/ip
 ```

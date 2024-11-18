@@ -1,4 +1,3 @@
-// Export event handlers for Cloudflare Worker
 export default {
   fetch(request, env, ctx) {
     return handleRequest(request, env, ctx);
@@ -12,6 +11,16 @@ async function handleRequest(request, env, ctx) {
   // Return plain text IP if /ip endpoint is used
   if (url.pathname === "/ip") {
     return new Response(clientIP, {
+      headers: {
+        "content-type": "text/plain",
+        "cache-control": "public, max-age=1209600",
+      },
+    });
+  }
+
+  // Return plain text ISP if /isp endpoint is used
+  if (url.pathname === "/isp") {
+    return new Response(request.cf.asOrganization || "Unknown ISP", {
       headers: {
         "content-type": "text/plain",
         "cache-control": "public, max-age=1209600",
