@@ -1,0 +1,13 @@
+name = "myip"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Configure environment for development
+[env.development]
+name = "myip-dev"
+workers_dev = true
+
+# Configure environment for production
+[env.production]
+name = "myip"
+workers_dev = true
